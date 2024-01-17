@@ -12,4 +12,4 @@ node server.js
 
 Le serveur sera lancé à l'adresse http://localhost:3000.
 
-Une fois le serveur actif, ouvrez votre navigateur et accédez à ./semantic-front/index.html.
+Une fois le serveur actif, ouvrez votre navigateur et accédez à index.html.
