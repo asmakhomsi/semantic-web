@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin: 0;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: center;
+    background-color: #007BFF;
+    padding: 10px;
+  }
+  
+  .menu button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .menu button:hover {
+    background-color: #004080;
+  }
+  
+  .menu button:focus {
+    outline: none;
+  }
+  

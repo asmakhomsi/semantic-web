@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>See Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<!-- ... (head section remains the same) ... -->
+
+<body>
+
+    <h2>See Data</h2>
+  
+    <label for="collectionName">Enter Collection Name:</label>
+    <input type="text" id="collectionName">
+    <button onclick="getData()">Get Data</button>
+  
+    <div id="dataContainer"></div>
+  
+    <script>
+      async function getData() {
+        const collectionName = document.getElementById('collectionName').value;
+  
+        try {
+          const response = await fetch(`http://localhost:3000/seedata/${collectionName}`);
+          if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+          }
+  
+          const data = await response.json();
+          const dataContainer = document.getElementById('dataContainer');
+          dataContainer.innerHTML = '';
+  
+          if (data.length > 0) {
+            const table = document.createElement('table');
+            const headerRow = table.createTHead().insertRow(0);
+  
+            // Create table headers
+            Object.keys(data[0]).forEach(key => {
+              const th = document.createElement('th');
+              th.textContent = key;
+              headerRow.appendChild(th);
+            });
+  
+            // Populate table with data
+            data.forEach(item => {
+              const row = table.insertRow();
+              Object.values(item).forEach(value => {
+                const cell = row.insertCell();
+                cell.textContent = value;
+              });
+            });
+  
+            dataContainer.appendChild(table);
+          } else {
+            dataContainer.textContent = 'No data found.';
+          }
+        } catch (error) {
+          console.error(error);
+          const dataContainer = document.getElementById('dataContainer');
+          dataContainer.textContent = `Error: ${error.message}`;
+        }
+      }
+    </script>
+  
+  </body>
+  </html>
+  

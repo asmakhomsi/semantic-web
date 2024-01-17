@@ -1,0 +1,50 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Relationships</title>
+  <link rel="stylesheet" href="relationshipstyle.css">
+</head>
+<body>
+
+  <div class="menu-container">
+    <h2>Choose Relationship to Add</h2>
+    <select id="relationshipType" onchange="showRelationshipForm()">
+      <option value="" disabled selected>Select Relationship</option>
+      <option value="patientDoctor">Patient-Doctor Relationship</option>
+      <option value="patientDiagnosis">Patient-Diagnosis Relationship</option>
+      <option value="doctorDiagnosis">Doctor-Diagnosis Relationship</option>
+      <option value="patientMedication">Patient-Medication Relationship</option>
+      <option value="doctorPrescription">Doctor-Prescription Relationship</option>
+      <option value="doctorHospital">Doctor-Hospital Relationship</option>
+      <option value="diseaseDiagnosis">Disease-Diagnosis Relationship</option>
+      <option value="diseaseMedication">Disease-Medication Relationship</option>
+      <option value="medicationPrescription">Medication-Prescription Relationship</option>
+      <option value="symptomDiagnosis">Symptom-Diagnosis Relationship</option>
+      <option value="hospitalDoctor">Hospital-Doctor Relationship</option>
+      <option value="hospitalPatient">Hospital-Patient Relationship</option>
+    </select>
+  </div>
+
+  <div class="form-container" id="relationshipFormContainer">
+    <!-- Relationship forms will be displayed here -->
+  </div>
+
+  <div class="form-container" id="relationshipFormContainer">
+    <!-- Relationship forms will be displayed here -->
+    <button onclick="goBackToIndex()">Go Back to Index</button>
+  </div>
+
+  <script src="relationship-script.js"></script>
+  <script>
+    function goBackToIndex() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
+
+
